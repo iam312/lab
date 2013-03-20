@@ -13,21 +13,18 @@ int get_distance(list<int>& list_values ) {
 	return distance;
 }
 
-int main( int argc, char* argv[] ) {
-	// INPUT
-	int arr_pos_a[100] = {1, 2, 5, 6, 10, 100, }; 
-	int arr_pos_b[100] = {3, 15, 20, 30, }; 
-	int arr_pos_c[100] = {12, 18, 340, 70, }; 
 
-	list<int*> list_pos;
-	list_pos.push_back(arr_pos_a);
-	list_pos.push_back(arr_pos_b);
-	list_pos.push_back(arr_pos_c);
 
-	vector<int> vector_idx;
-	vector_idx.push_back(0);
-	vector_idx.push_back(0);
-	vector_idx.push_back(0);
+void process_distance( list<int*> list_pos ) {
+
+	vector<int> vector_cursor;
+
+	int i_howmany_list = list_pos.size();
+
+	for ( int i = 0; i < i_howmany_list; i++ ) {
+		vector_cursor.push_back(0);
+	}
+
 
 	int count = 0;
 	while ( true ) {
@@ -39,28 +36,35 @@ int main( int argc, char* argv[] ) {
 			cout << *(*itr_list + 0) << endl;
 		}
 
-
-
-
-		if ( count++ > 5 ) {
-			break;
-		}
-	}
-
-
-//	for ( list<int>::iterator itr_list = list_total.begin();
-//		  itr_list != list_total.end();
-//		  ++itr_list ) {
-//		cout << *itr_list << endl;
-//	}
-
-
-	
-//	for ( int idx = 0; idx < 100; idx++ ) {
-//		if ( i_pos_a[idx] == 0 )
+//		vector<int>::iterator itr = vector_cursor.begin();
+//		cout << "val :" << *itr << endl;
+//		cout << "cursor 1 :" << vector_cursor.at(0) << endl;
+//		cout << "cursor 2 :" << vector_cursor.at(1) << endl;
+//		cout << "cursor 3 :" << vector_cursor.at(2) << endl;
+//
+//		vector_cursor.at(0) = 5;
+//
+//
+//		if ( count++ > 5 ) {
 //			break;
-//		cout << i_pos_a[idx];
-//	}
+//		}
+	}
+}
+
+
+
+int main( int argc, char* argv[] ) {
+	// INPUT
+	int arr_pos_a[100] = {1, 2, 5, 6, 10, 100, }; 
+	int arr_pos_b[100] = {3, 15, 20, 30, }; 
+	int arr_pos_c[100] = {12, 18, 340, 70, }; 
+
+	list<int*> list_pos;
+	list_pos.push_back(arr_pos_a);
+	list_pos.push_back(arr_pos_b);
+	list_pos.push_back(arr_pos_c);
+
+	process_distance( list_pos );
 
 	return 0;
 }
